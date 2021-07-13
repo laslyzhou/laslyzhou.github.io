@@ -1,156 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <title>Aurobay Technology Radar</title>
-
+<!DOCTYPE html><html class="html" lang="en"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We are Aurobay &#xB7; Aurobay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Volvo Cars&#x2019; powertrain">
+    <meta name="referrer" content="no-referrer-when-downgrade">
 
-    <link href="/images/favicon.ico" rel="icon" />
+    
+    <meta property="og:title" content="We are Aurobay">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.aurobay.com/assets/static/images/aurobay_share.png">
+    <meta property="og:site_name" content="Aurobay">
+    <meta property="og:description" content="Volvo Cars&#x2019; powertrain">
 
-<link href="./radar.0d4a102bc99504b1efdc.css" rel="stylesheet"></head>
+    <link rel="stylesheet" href="https://www.aurobay.com/assets/main.d3b2a9531d92098e1b79.css">
+    <script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; setTimeout(function(){fs.parentNode.insertBefore(cs,fs)},1); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('3P1w24dbkZP8mY5n'); </script>
 
-<body>
-    <header class="header">
-        <div class="radar-title">
-            <div class="radar-title__text">
-                <a href="index.html">
-                    <h1>Aurobay Technology Radar</h1>
-                </a>
-            </div>
-            <!--<div class="radar-title__logo">
-                <a href="index.html">
-                    <img src="./images/logo.svg" alt="">
-                </a>
-            </div>
-            <div class="login-container">
-                <a data-action="login" class="login-link--login">Log in</a>
-            </div>-->
-        </div>
-        <div id="radar-categories" class="radar-categories">
-        </div>
-        <div id="radar-exploration" class="radar-exploration hidden">
-            <div id="radar-exploration__search" class="radar-exploration__search">
-                <input type="search" id="auto-complete" placeholder="Search..."
-                    class="radar-exploration__search--input ui-autocomplete-input" autocomplete="off">
-            </div>
-            <div id="radar-exploration__filter" class="radar-exploration__filter">
-                <label for="fixed-checkbox" class="checkbox-item">Fixed
-                    <input type="checkbox" class="checkbox" id="fixed-checkbox" checked>
-                    <span class="checkmark"></span>
-                </label>
-                <label for="firm-checkbox" class="checkbox-item">Firm
-                    <input type="checkbox" class="checkbox" id="firm-checkbox" checked>
-                    <span class="checkmark"></span>
-                </label>
-                <label for="flexible-checkbox" class="checkbox-item">Flexible
-                    <input type="checkbox" class="checkbox" id="flexible-checkbox" checked>
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-        </div>
-        <div id="radar-under-construction" class="radar-under-construction hidden">
-            The Technology Radar will soon be available
-        </div>
-        <div id="spinner" class="spinner hidden"></div>
-    </header>
-
-    <main class="main">
-        <div id="radar-container" class="radar-container"></div>
-        <div class="radar-information-container">
-            <div class="radar-information">
-                <!--<p>
-                    <h4>
-                        The Aurobay Technology Radar is a list of technologies, complemented by an assessment result,
-                        called
-                        ring assignment. It describes different states
-                        that
-                        items can be in, descriptions and the rationale on why it's placed in a specific state. It's
-                        also describes what technology and practices to avoid. <br> <br> 
-                    </h4>
-                <h4>What is the purpose?</h4>
-                <em> The Tech Radar is a tool to inspire and support our Digital Business at Aurobay to pick the best technologies for new development. It provides a platform to share knowledge and experience in technologies, and to reflect strategic direction and technology decisions that has been made to support the totality of the company. </em>
-                <br><br>
-                <h4>How is it maintained?</h4>
-                <em>The Tech Radar is maintained by a group of senior technologists, who meets on a regular basis to evolve the radar based on recent industry trends and company decisons. </em>     
-                <br><br>
-                <h4>We use four rings with the following semantics:</h4>
-                     <br><br>
-                </p>-->
-                <p>
-                    <a><strong>ADOPT</strong></a>
-                    — Technologies
-                    we have high confidence in to serve our purpose, also in large scale. Technologies with a usage
-                    culture
-                    in our INGKA production environment, low risk and recommended to be widely used. <br><br>
-
-                    <a><strong>TRIAL</strong></a>
-                    —
-                    Technologies that we have seen work with success in project work to solve a real problem; first
-                    serious
-                    usage experience that confirm benefits and can uncover limitations. TRIAL technologies are slightly
-                    more
-                    risky; some engineers in our organization walked this path and will share knowledge and experiences.
-                    <br><br>
-                    <a><strong>ASSESS</strong></a>
-                    —
-                    Technologies that are promising and have clear potential value-add for us; technologies worth to
-                    invest
-                    some research and prototyping efforts in to see if it has impact. ASSESS technologies have higher
-                    risks;
-                    they are often brand new and highly unproven in our organisation. <br><br>
-                    <a><strong>HOLD</strong></a>
-                    —
-                    Technologies not recommended to be used for new projects. HOLD technologies should not be used for
-                    new
-                    projects, should be avoided, but usually can in some circumstances be used for existing projects
-                    already
-                    using this technology. HOLD also includes technologies that are being phased out. <br><br>
-
-                    <br> <em>Every item placed on the radar is marked with a strategic label. The lables can be Fixed,
-                        Firm
-                        or Flexible.
-                        The three F's is a way to clarify how we should use technology and practices that exists on the
-                        Technology Radar. The intention with these labels
-                        are to highlight the importance of a certain technology or practice from a strategic point of
-                        view
-                        for Aurobay.
-                        The definition of Fixed, Firm, Flexible are as follows: </em>
-                </p>
-                <p>
-                    <a><strong>FIXED</strong></a>
-                    — In the
-                    context of Aurobay Technology Standards FIXED means that standards that fall under this category is
-                    decided, mandatory for all to adhere to, and will not be changed easily. They are standards that are
-                    critical for Aurobay, to function from a technology perspective.
-                    <br><br>
-                    <a><strong>FIRM</strong></a>
-                    — In the
-                    context of Aurobay Technology Standards FIRM means that standards that falls under this category is
-                    decided, part of a solid foundation, that we build on but can be changed more easily. It can also be
-                    diverted from if the need is there and we document why.
-                    <br><br>
-                    <a><strong>FLEXIBLE</strong></a>
-                    — In the
-                    context of Aurobay Technology Standards FLEXIBLE means that standards that falls under this category
-                    is
-                    best practice, recommendations, things that we know from experience and industry best practice to
-                    work
-                    well for Aurobay.
-                    <br><br>
-                </p>
-
-            </div>
-        </div>
+  </head>
+  <body class="body">
+    <main>
+      <video autoplay loop muted playsinline src="https://www.aurobay.com/assets/static/videos/Aurobay_Energy.mp4"></video>
+<div class="centered">
+  <div class="centered-content">
+    <picture>  <source type="image/webp" srcset="https://www.aurobay.com/assets/images/a610299a-320.webp 320w" sizes="90vw"><source type="image/png" srcset="https://www.aurobay.com/assets/images/a610299a-320.png 320w" sizes="90vw">  <img class loading="lazy" src="https://www.aurobay.com/assets/images/a610299a-320.png" width="320" height="80" alt="Aurobay"></picture>
+    <h2>We are Aurobay</h2>
+    <p>We&#x2019;re a pioneering venture that brings together Volvo Cars&#x2019; powertrain business with Geely to develop and supply powertrain solutions for customers worldwide.</p>
+    <p>Inspired by our 150-year heritage, we aim to power the sustainable mobility of tomorrow, driving innovation, exploring new options and developing new technologies. Pushing the environmental impact towards zero.</p>
+    <p>Our vision is to re-imagine motion for a brighter future. We&#x2019;re starting with the mobility industry. But it won&#x2019;t stop there.</p>
+    <p>Join us on our journey!</p>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
     </main>
 
-    <footer class="footer">
-        <div class="contact">
-            <p>Read more about the Technology Radar and how to contribute to our GitHub repository.</p>
-            <p>The Aurobay Technology Radar is based on Thoughtworks previous work and customized by Ingka Group Digital.</p>
-        </div>
-    </footer>
-<script type="text/javascript" src="./radar.0d4a102bc99504b1efdc.js"></script></body>
-
-</html>
+</body></html>
