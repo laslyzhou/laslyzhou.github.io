@@ -152,7 +152,7 @@ const JSONFile = function (url) {
   var self = {}
 
   self.build = function () {
-    d3.json(url).then(createBlips(url))
+    createBlips(url)
   }
 
   var createBlips = function (data) {
@@ -209,7 +209,7 @@ function plotLoading(content) {
     plotFooter(content)
   } else {
     document.querySelector('.helper-description > p').style.display = 'none'
-    document.querySelector('.input-sheet-form').style.display = 'none'
+    //document.querySelector('.input-sheet-form').style.display = 'none'
     document.querySelector('.helper-description .loader-text').style.display = 'block'
   }
 }
@@ -218,7 +218,7 @@ function plotLogo(content) {
   content
     .append('div')
     .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.thoughtworks.com"><img src="/images/tw-logo.png" / ></a>')
+    .html('<a href="https://www.apsis.com"><img src="/images/tw-logo.png" / ></a>')
 }
 
 function plotFooter(content) {
@@ -228,12 +228,7 @@ function plotFooter(content) {
     .append('div')
     .attr('class', 'footer-content')
     .append('p')
-    .html(
-      'Powered by <a href="https://www.thoughtworks.com"> Thoughtworks</a>. ' +
-        'By using this service you agree to <a href="https://www.thoughtworks.com/radar/tos">Thoughtworks\' terms of use</a>. ' +
-        'You also agree to our <a href="https://www.thoughtworks.com/privacy-policy">privacy policy</a>, which describes how we will gather, use and protect any personal data contained in your public Google Sheet. ' +
-        'This software is <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and self-hosting.',
-    )
+    .html('Powered by <a href="https://www.thoughtworks.com"> Thoughtworks</a>.')
 }
 
 function plotBanner(content, text) {
