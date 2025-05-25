@@ -163,7 +163,7 @@ const JSONFile = function (url) {
       contentValidator.verifyHeaders()
       var blips = _.map(data, new InputSanitizer().sanitize)
       console.log('JSON3')
-      plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
+      plotRadar('NOVO NORDISK TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
       plotErrorMessage(exception)
     }
