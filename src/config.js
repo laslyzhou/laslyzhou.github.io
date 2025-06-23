@@ -10,4 +10,4 @@ const config = {
     },
   },
 }
-module.exports = process.env.ENVIRONMENT ? config[process.env.ENVIRONMENT] : config
+module.exports = process.env.ENVIRONMENT ? config[process.env.ENVIRONMENT] : config.development
