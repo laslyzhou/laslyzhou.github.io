@@ -26,6 +26,7 @@ const plugins = [
     template: './src/index.html',
     chunks: ['main'],
     inject: 'body',
+    title: 'Novo Nordisk',
   }),
   new HtmlWebpackPlugin({
     template: './src/error.html',
