@@ -105,7 +105,10 @@ const GoogleSheet = function (sheetReference, sheetName) {
 
     const all = values
     const header = all.shift()
-    var blips = lodash.map(all, (blip) => new InputSanitizer().sanitizeForProtectedSheet(blip, header))
+    var inputSanitizer = new InputSanitizer()
+    var blips = lodash.map(all, function(blip) {
+      return inputSanitizer.sanitizeForProtectedSheet(blip, header)
+    })
     plotRadar(documentTitle + ' - ' + sheetName, blips, sheetName, sheetNames)
   }
 
@@ -164,7 +167,10 @@ const JSONFile = function (data) {
       var contentValidator = new ContentValidator(columnNames)
       contentValidator.verifyContent()
       contentValidator.verifyHeaders()
-      var blips = lodash.map(data, new InputSanitizer().sanitize)
+      var inputSanitizer = new InputSanitizer()
+      var blips = lodash.map(data, function(item) {
+        return inputSanitizer.sanitize(item)
+      })
       plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
       plotErrorMessage(exception)
