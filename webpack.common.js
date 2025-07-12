@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
 
-const env = args.envFile
+const env = args && args.envFile
 if (env) {
   // Load env file
   require('dotenv').config({ path: env })
