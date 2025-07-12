@@ -163,7 +163,7 @@ const JSONFile = function (url) {
       contentValidator.verifyHeaders()
       var blips = _.map(data, new InputSanitizer().sanitize)
       console.log('JSON3')
-      plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
+      plotRadar('NOVO NORDISK TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
       plotErrorMessage(exception)
     }
@@ -218,7 +218,7 @@ function plotLogo(content) {
   content
     .append('div')
     .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.apsis.com"><img src="/images/tw-logo.png" / ></a>')
+    .html('<a href="https://www.novonordisk.com"><img src="/images/novo-nordisk-logo.svg" / ></a>')
 }
 
 function plotFooter(content) {
