@@ -172,7 +172,6 @@ const JSONFile = function (data) {
       var blips = _.map(data, new InputSanitizer().sanitize)
       plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
-      console.error('Error in createBlips:', exception)
       plotErrorMessage(exception)
     }
   }
@@ -266,15 +265,16 @@ function plotErrorMessage(exception) {
 }
 
 function plotError(exception, container) {
-  let message = "Oops! We can't find the Google Sheet you've entered"
+  let message = "Oops! Something went wrong while building your radar"
   let faqMessage =
     'Please check <a href="https://www.thoughtworks.com/radar/how-to-byor">FAQs</a> for possible solutions.'
   if (exception instanceof MalformedDataError) {
-    message = message.concat(exception.message)
+    message = exception.message
   } else if (exception instanceof SheetNotFoundError) {
     message = exception.message
   } else {
     console.error(exception)
+    message = "Error: " + exception.message
   }
   container = container.append('div').attr('class', 'error-container')
   const errorContainer = container.append('div').attr('class', 'error-container__message')
