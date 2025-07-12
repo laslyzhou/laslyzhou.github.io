@@ -33,6 +33,14 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   }
   document.title = title
   d3.selectAll('.loading').remove()
+  
+  // Hide loader for UIRefresh2022 mode
+  if (config.featureToggles.UIRefresh2022) {
+    const loaderElement = document.querySelector('.helper-description .loader-text')
+    if (loaderElement) {
+      loaderElement.style.display = 'none'
+    }
+  }
 
   var rings = _.map(_.uniqBy(blips, 'ring'), 'ring')
   var ringMap = {}
@@ -162,9 +170,9 @@ const JSONFile = function (data) {
       contentValidator.verifyContent()
       contentValidator.verifyHeaders()
       var blips = _.map(data, new InputSanitizer().sanitize)
-      console.log('JSON3')
       plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
+      console.error('Error in createBlips:', exception)
       plotErrorMessage(exception)
     }
   }
