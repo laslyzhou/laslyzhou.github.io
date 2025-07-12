@@ -148,11 +148,11 @@ const GoogleSheet = function (sheetReference, sheetName) {
   return self
 }
 
-const JSONFile = function (url) {
+const JSONFile = function (data) {
   var self = {}
 
   self.build = function () {
-    createBlips(url)
+    createBlips(data)
   }
 
   var createBlips = function (data) {
