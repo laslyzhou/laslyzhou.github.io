@@ -1,7 +1,7 @@
 const d3 = require('d3')
 const d3tip = require('d3-tip')
 const Chance = require('chance')
-const _ = require('lodash/core')
+const lodash = require('lodash')
 
 const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
@@ -553,7 +553,7 @@ const Radar = function (size, radar) {
         .on('click', selectQuadrant.bind({}, quadrant.order, quadrant.startAngle))
     }
 
-    _.each([0, 1, 2, 3], function (i) {
+    lodash.each([0, 1, 2, 3], function (i) {
       addButton(quadrants[i])
     })
 
@@ -718,7 +718,7 @@ const Radar = function (size, radar) {
       .attr('width', size)
       .attr('height', size + 14)
 
-    _.each(quadrants, function (quadrant) {
+    lodash.each(quadrants, function (quadrant) {
       var quadrantGroup = plotQuadrant(rings, quadrant)
       plotLines(quadrantGroup, quadrant)
       plotTexts(quadrantGroup, rings, quadrant)
