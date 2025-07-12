@@ -1,12 +1,7 @@
 /* eslint no-constant-condition: "off" */
 
 const d3 = require('d3')
-const _ = {
-  map: require('lodash/map'),
-  uniqBy: require('lodash/uniqBy'),
-  capitalize: require('lodash/capitalize'),
-  each: require('lodash/each'),
-}
+const lodash = require('lodash')
 
 const InputSanitizer = require('./inputSanitizer')
 const Radar = require('../models/radar')
@@ -42,11 +37,11 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
     }
   }
 
-  var rings = _.map(_.uniqBy(blips, 'ring'), 'ring')
+  var rings = lodash.map(lodash.uniqBy(blips, 'ring'), 'ring')
   var ringMap = {}
   var maxRings = 4
 
-  _.each(rings, function (ringName, i) {
+  lodash.each(rings, function (ringName, i) {
     if (i === maxRings) {
       throw new MalformedDataError(ExceptionMessages.TOO_MANY_RINGS)
     }
@@ -54,9 +49,9 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   })
 
   var quadrants = {}
-  _.each(blips, function (blip) {
+  lodash.each(blips, function (blip) {
     if (!quadrants[blip.quadrant]) {
-      quadrants[blip.quadrant] = new Quadrant(_.capitalize(blip.quadrant))
+      quadrants[blip.quadrant] = new Quadrant(lodash.capitalize(blip.quadrant))
     }
     quadrants[blip.quadrant].add(
       new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description),
@@ -64,7 +59,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   })
 
   var radar = new Radar()
-  _.each(quadrants, function (quadrant) {
+  lodash.each(quadrants, function (quadrant) {
     radar.addQuadrant(quadrant)
   })
 
@@ -110,7 +105,7 @@ const GoogleSheet = function (sheetReference, sheetName) {
 
     const all = values
     const header = all.shift()
-    var blips = _.map(all, (blip) => new InputSanitizer().sanitizeForProtectedSheet(blip, header))
+    var blips = lodash.map(all, (blip) => new InputSanitizer().sanitizeForProtectedSheet(blip, header))
     plotRadar(documentTitle + ' - ' + sheetName, blips, sheetName, sheetNames)
   }
 
@@ -169,7 +164,7 @@ const JSONFile = function (data) {
       var contentValidator = new ContentValidator(columnNames)
       contentValidator.verifyContent()
       contentValidator.verifyHeaders()
-      var blips = _.map(data, new InputSanitizer().sanitize)
+      var blips = lodash.map(data, new InputSanitizer().sanitize)
       plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
       plotErrorMessage(exception)
