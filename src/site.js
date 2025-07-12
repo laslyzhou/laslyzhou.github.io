@@ -1,5 +1,5 @@
 require('./common')
-require('./images/logo.png')
+require('./images/novo-nordisk-logo.svg')
 require('./images/radar_legend.png')
 
 const GoogleSheetInput = require('./util/factory')
