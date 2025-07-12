@@ -651,7 +651,10 @@ const Radar = function (size, radar) {
 
   self.init = function () {
     const selector = config.featureToggles.UIRefresh2022 ? 'main' : 'body'
-    radarElement = d3.select(selector).append('div').attr('id', 'radar')
+    radarElement = d3.select('#radar')
+    if (radarElement.empty()) {
+      radarElement = d3.select(selector).append('div').attr('id', 'radar')
+    }
     return self
   }
 
