@@ -171,7 +171,7 @@ const JSONFile = function (data) {
       var blips = lodash.map(data, function(item) {
         return inputSanitizer.sanitize(item)
       })
-      plotRadar('APSIS TECH RADAR', blips, 'JSON File', [])
+      plotRadar('NOVO NORDISK TECH RADAR', blips, 'JSON File', [])
     } catch (exception) {
       plotErrorMessage(exception)
     }
@@ -226,7 +226,7 @@ function plotLogo(content) {
   content
     .append('div')
     .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.apsis.com"><img src="/images/tw-logo.png" / ></a>')
+    .html('<a href="https://www.novonordisk.com"><img src="/images/tw-logo.png" / ></a>')
 }
 
 function plotFooter(content) {
